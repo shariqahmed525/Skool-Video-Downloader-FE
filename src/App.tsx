@@ -170,7 +170,7 @@ function App() {
 
     try {
       // 1. Tell backend to process the video. This takes time, and the loader will spin.
-      const response = await fetch("http://localhost:3000/download", {
+      const response = await fetch("https://skool-video-downloader-be.onrender.com/download", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -199,7 +199,7 @@ function App() {
 
       if (data.success && data.fileName) {
         // 2. The backend has finished processing. Now trigger the native browser download!
-        const url = new URL("http://localhost:3000/serve-file");
+        const url = new URL("https://skool-video-downloader-be.onrender.com/serve-file");
         url.searchParams.append("fileName", data.fileName);
 
         const a = document.createElement("a");
