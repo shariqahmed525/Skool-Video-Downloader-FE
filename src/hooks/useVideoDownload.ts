@@ -40,7 +40,7 @@ export function useVideoDownload() {
           if (errData && errData.error) {
             errorMsg = errData.error;
           }
-        } catch (e) {
+        } catch {
           // ignore json parse error
         }
         throw new Error(errorMsg);
@@ -78,9 +78,10 @@ export function useVideoDownload() {
       } else {
         throw new Error(data.error || "Unexpected response from backend.");
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      alert(`Download Failed:\n\n${err.message}`);
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      alert(`Download Failed:\n\n${errorMessage}`);
       setDownloadStatus((prev) => ({
         ...prev,
         [video.playbackId]: {

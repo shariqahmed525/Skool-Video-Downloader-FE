@@ -1,5 +1,5 @@
 export interface VideoInfo {
-  token: string;
+  token: string | null;
   title: string;
   playbackId: string;
   thumbnailUrl: string;
