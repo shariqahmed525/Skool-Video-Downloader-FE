@@ -1,0 +1,246 @@
+:root {
+  --bg-color: #0d1117;
+  --panel-bg: #161b22;
+  --border-color: #30363d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --accent-color: #58a6ff;
+  --accent-hover: #3182ce;
+  --success-color: #238636;
+  --success-hover: #2ea043;
+  --danger-color: #f85149;
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  width: 380px;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+
+header h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+main {
+  padding: 16px;
+  flex-grow: 1;
+  min-height: 400px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+main::-webkit-scrollbar {
+  width: 6px;
+}
+main::-webkit-scrollbar-track {
+  background: transparent;
+}
+main::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  color: var(--text-secondary);
+  text-align: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.error-state {
+  color: var(--danger-color);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(88, 166, 255, 0.2);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-color: #484f58;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+  min-width: 0; /* allows text truncation */
+}
+
+.video-thumbnail {
+  width: 56px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+  background-color: #000;
+  flex-shrink: 0;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.video-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-id {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  background-color: #21262d;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.icon-btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+  color: #fff;
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+.btn.copied {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: #fff;
+}
+
+.btn.copied:hover {
+  background-color: var(--success-hover);
+}
+
+footer {
+  padding: 12px 16px;
+  background-color: var(--panel-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.instructions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.arrow {
+  opacity: 0.5;
+}

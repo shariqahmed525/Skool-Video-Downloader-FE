@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "Skool Video Downloader",
+    "description": "Seamlessly download educational videos and resources from the Skool platform with a single click.",
+    "icons": {
+        "16": "/images/icon16.png",
+        "48": "/images/icon48.png",
+        "128": "/images/icon128.png"
+    },
+    "permissions": [
+        "downloads",
+        "activeTab",
+        "sidePanel",
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["ffmpeg/*"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
