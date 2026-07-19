@@ -30,7 +30,7 @@ function App() {
         {error && <StateContainer type="error" message={error} />}
 
         {!loading && !error && videos.length === 0 && (
-          <StateContainer type="empty" message="No videos found here." />
+          <StateContainer type="empty" message="No videos found here. Note: Embedded videos are not supported for download." />
         )}
 
         {!loading && videos.length > 0 && (

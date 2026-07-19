@@ -11,23 +11,13 @@
     "permissions": [
         "downloads",
         "activeTab",
-        "sidePanel",
         "scripting"
     ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
     ],
-    "content_security_policy": {
-        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
-    },
     "action": {
         "default_popup": "index.html"
-    },
-    "web_accessible_resources": [
-        {
-            "resources": ["ffmpeg/*"],
-            "matches": ["<all_urls>"]
-        }
-    ]
+    }
 }
